@@ -4,11 +4,22 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/iframe-tester-2/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-    <script type="module" crossorigin src="/iframe-tester-2/assets/index.11860bdc.js"></script>
+    <title>Ubble Iframe tester</title>
+    <meta name="description" content="Tool to test the Ubble Iframe SDK integration, more info available at https://ubbleai.github.io/developer-documentation/#iframe-integration" />
+
+    <script type="module" crossorigin src="/iframe-tester-2/assets/index.58ddaca5.js"></script>
   </head>
   <body>
     <div id="root"></div>
+
+    <script src="https://oos.eu-west-2.outscale.com/public-ubble-ai/iframe-sdk-0.0.3.js"></script>
+    <script>
+        window.ubbleLoaded = new Promise((resolve, reject) => {
+            window.onUbbleReady = () => {
+              resolve();
+            };
+        });
+    </script>
     
   </body>
 </html>
