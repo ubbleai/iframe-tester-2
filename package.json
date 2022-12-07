@@ -9,7 +9,9 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.vue src",
-    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,vue,html,css,scss,md}\""
+    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,vue,html,css,scss,md}\"",
+    "predeploy": "yarn build --base /iframe-tester-2/",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
