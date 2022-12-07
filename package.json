@@ -1,0 +1,63 @@
+{
+  "name": "iframe-tester-2",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://ubbleai.github.ui/iframe-tester-2/",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx,.vue src",
+    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,vue,html,css,scss,md}\""
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@mantine/core": "^5.9.2",
+    "@mantine/form": "^5.9.2",
+    "@mantine/hooks": "^5.9.2",
+    "@mantine/prism": "^5.9.2",
+    "@reduxjs/toolkit": "^1.9.1",
+    "@tabler/icons": "^1.115.0",
+    "localforage": "^1.10.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "redux-persist": "^6.0.0"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@vitejs/plugin-react": "^2.2.0",
+    "eslint": "^8.29.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.31.11",
+    "gh-pages": "^4.0.0",
+    "prettier": "^2.8.0",
+    "typescript": "*",
+    "vite": "^3.2.3"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "importOrder": [
+      "react",
+      "^react(.*)$",
+      "^redux-(.*)$",
+      "^[^@.](.*)$",
+      "^@react(.*)$",
+      "^@reduxjs(.*)$",
+      "^@mantine(.*)$",
+      "^@/(.*)$",
+      "^[./]"
+    ],
+    "importOrderSeparation": true
+  }
+}
