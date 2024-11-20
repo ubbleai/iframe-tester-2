@@ -1,27 +1,31 @@
-import { RefObject, useEffect } from 'react'
+import { RefObject, useEffect } from 'react';
 
-import { UbbleProps } from '../types'
+import { UbbleProps } from '../types';
 
-declare const Ubble: any
+declare const Ubble: any;
 
-type UbbleCallback = (event: any) => void
+type UbbleCallback = (event: any) => void;
 
 interface UseUbbleIframeProps {
-  ref: RefObject<HTMLDivElement>
-  ubbleProps: UbbleProps
-  onComplete?: UbbleCallback
-  onAbort?: UbbleCallback
-  onExpired?: UbbleCallback
+  ref: RefObject<HTMLDivElement>;
+  ubbleProps: UbbleProps;
+  onComplete?: UbbleCallback;
+  onAbort?: UbbleCallback;
+  onExpired?: UbbleCallback;
 }
 
-export function useUbbleIframe<T> ({
+export function useUbbleIframe<T>({
   ubbleProps,
   onAbort,
   ref,
   onExpired,
-  onComplete
+  onComplete,
 }: UseUbbleIframeProps) {
   useEffect(() => {
+    if (!ubbleProps.identificationUrl) {
+      return;
+    }
+
     const iframe = new Ubble.IDV(ref.current, {
       height: ubbleProps.height,
       width: ubbleProps.width,
@@ -30,12 +34,12 @@ export function useUbbleIframe<T> ({
       events: {
         onComplete,
         onAbort,
-        onExpired
-      }
-    })
+        onExpired,
+      },
+    });
 
     return () => {
-      iframe.destroy()
-    }
-  }, [ref.current, ubbleProps, onComplete, onAbort, onExpired])
+      iframe.destroy();
+    };
+  }, [ref.current, ubbleProps, onComplete, onAbort, onExpired]);
 }
