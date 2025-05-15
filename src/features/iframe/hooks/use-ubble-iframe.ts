@@ -12,6 +12,7 @@ interface UseUbbleIframeProps {
   onComplete?: UbbleCallback;
   onAbort?: UbbleCallback;
   onExpired?: UbbleCallback;
+  onRefused?: UbbleCallback;
 }
 
 export function useUbbleIframe<T>({
@@ -20,6 +21,7 @@ export function useUbbleIframe<T>({
   ref,
   onExpired,
   onComplete,
+  onRefused,
 }: UseUbbleIframeProps) {
   useEffect(() => {
     if (!ubbleProps.identificationUrl) {
@@ -29,17 +31,18 @@ export function useUbbleIframe<T>({
     const iframe = new Ubble.IDV(ref.current, {
       height: ubbleProps.height,
       width: ubbleProps.width,
-      identificationUrl: ubbleProps.identificationUrl,
+      verificationUrl: ubbleProps.identificationUrl,
       allowCamera: ubbleProps.allowCamera,
       events: {
         onComplete,
         onAbort,
         onExpired,
+        onRefused
       },
     });
 
     return () => {
       iframe.destroy();
     };
-  }, [ref.current, ubbleProps, onComplete, onAbort, onExpired]);
+  }, [ref.current, ubbleProps, onComplete, onAbort, onExpired, onRefused]);
 }

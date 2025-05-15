@@ -31,6 +31,7 @@ export function Iframe() {
     onAbort: handleEvent,
     onComplete: handleEvent,
     onExpired: handleEvent,
+    onRefused: handleEvent,
   });
 
   return <div className={classes.iframe} ref={iframeRef} />;
